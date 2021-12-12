@@ -21,7 +21,13 @@ $file_extensions = Hash[
   "PDF" => "pdf",
   "ASCII" => "txt",
   "PNG" => "png",
-  "JPEG" => "jpg"
+  "JPEG" => "jpg",
+  "Apple" => "plist",
+  "GIF" => "gif",
+  "HTML" => "html",
+  "Rich" => "rtf",
+  "Zip" => "zip",
+  "gzip" => "gzip",
 ]
 
 def extension_for_file(file)
