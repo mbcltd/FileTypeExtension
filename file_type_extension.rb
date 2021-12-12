@@ -74,8 +74,12 @@ def process(file)
                   "#{target_file_loc}#{extension}"
                 end
 
+  base_name = File.basename(target_file)
+
+  sub_dir = extension[1..-1]
+
   # Work out where the target directory is
-  target_dir = File.dirname(target_file)
+  target_dir = "#{$output_directory}/#{sub_dir}"
 
   # Create the target directory if necessary
   unless File.directory?(target_dir)
@@ -83,7 +87,7 @@ def process(file)
   end
 
   # Copy the original file to the target file name
-  FileUtils.cp(file, target_file)
+  FileUtils.cp(file, "#{target_dir}/#{base_name}")
 end
 
 puts "Processing all files into the output directory: #{$output_directory}"
