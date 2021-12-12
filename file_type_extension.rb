@@ -1,9 +1,14 @@
 require 'fileutils'
 
-$source_directory = "./sample"
-$output_directory = "./sample_output"
+if ARGV.length != 2
+  puts "Usage file_type_extension.rb source_dir output_dir"
+  exit 1
+end
 
-puts "Getting all files under directory #{$source_directory}"
+$source_directory = ARGV[0]
+$output_directory = ARGV[1]
+
+puts "Getting all files under directory: #{$source_directory}"
 
 # Get all of the files and directories recursively under the source directory as a directory
 all_files = Dir["#{$source_directory}/**/*"]
@@ -75,7 +80,7 @@ def process(file)
   FileUtils.cp(file, target_file)
 end
 
-puts "Processing all files into the output directory #{$output_directory}"
+puts "Processing all files into the output directory: #{$output_directory}"
 
 # Process all of the files
 files.each { |f| process(f) }
